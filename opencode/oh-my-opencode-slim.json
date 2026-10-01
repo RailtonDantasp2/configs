@@ -1,0 +1,66 @@
+{
+  "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
+  "preset": "free-mix",
+  "presets": {
+    "free-mix": {
+      "orchestrator": {
+        "model": [
+          "opencode/muse-spark-1.3-contributor-free"
+        ],
+        "skills": ["*"],
+        "mcps": ["*", "!context7"]
+      },
+      "council": {
+        "model": "opencode/muse-spark-1.3-contributor-free"
+      },
+      "oracle": {
+        "model": "opencode/muse-spark-1.3-contributor-free",
+        "skills": ["simplify"],
+        "mcps": []
+      },
+      "librarian": {
+        "model": "opencode/muse-spark-1.3-contributor-free",
+        "skills": [],
+        "mcps": ["websearch", "context7", "grep_app"]
+      },
+      "explorer": {
+        "model": "opencode/muse-spark-1.3-contributor-free",
+        "skills": [],
+        "mcps": []
+      },
+      "designer": {
+        "model": "opencode/muse-spark-1.3-contributor-free",
+        "skills": [],
+        "mcps": []
+      },
+      "fixer": {
+        "model": "opencode/muse-spark-1.3-contributor-free",
+        "skills": [],
+        "mcps": []
+      },
+      "observer": {
+        "model": "opencode/muse-spark-1.3-contributor-free"
+      }
+    }
+  },
+  "companion": {
+    "enabled": false,
+    "position": "bottom-right",
+    "size": "medium",
+    "gifPack": "default",
+    "loopStyle": "classic",
+    "speed": 1,
+    "debug": false
+  },
+  "disabled_agents": [],
+  "council": {
+    "presets": {
+      "free-mix": {
+        "Raiutu": { "model": "opencode/muse-spark-1.3-contributor-free" },
+        "LG": { "model": "opencode/muse-spark-1.3-contributor-free" },
+        "Guga": { "model": "opencode/muse-spark-1.3-contributor-free" },
+        "Virgula": { "model": "opencode/muse-spark-1.3-contributor-free" }
+      }
+    }
+  }
+}

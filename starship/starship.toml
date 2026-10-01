@@ -1,0 +1,49 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Suporta tanto Python venv quanto Conda antes do usuário
+format = """
+$conda[](fg:#3b4261)$custom[:](bold blue bg:#3b4261)$directory[](fg:#3b4261) $git_branch $time$line_break[│](bold white)$line_break[└─>](bold white) """
+
+add_newline = true
+
+# Bloco do ionda
+[conda]
+style = "bold #1a1b26 bg:green"
+symbol = " "
+format = "[](fg:green)[$symbol$environment]($style)[](fg:green) "
+ignore_base = false # Mostra o nome mesmo se for o ambiente "base"
+
+
+# Bloco 1: Usuário e Diretório
+[custom.user_host]
+when = "true"
+command = "echo railton@zorin"
+style = "bold blue bg:#3b4261"
+format = "[$output]($style)"
+
+[directory]
+style = "bold blue bg:#3b4261"
+truncation_length = 2
+truncation_symbol = "~/"
+truncate_to_repo = false
+format = "[$path]($style)"
+
+# Bloco 2: Branch do Git
+[git_branch]
+style = "bold #1a1b26 bg:#7aa2f7"
+symbol = " "
+format = "[](fg:#7aa2f7)[$symbol$branch](bold #1a1b26 bg:#7aa2f7)[](fg:#7aa2f7)"
+
+# Bloco 3: Horário
+[time]
+disabled = false
+style = "bold #1a1b26 bg:#7dcfff"
+format = "[](fg:#7dcfff)[󱑎 $time](bold #1a1b26 bg:#7dcfff)[](fg:#7dcfff)"
+time_format = "%R"
+
+[character]
+success_symbol = '[➜](bold green)'
+
+[package]
+disabled = true

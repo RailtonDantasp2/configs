@@ -1,0 +1,67 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    "oh-my-opencode-slim"
+  ],
+  "agent": {
+    "explore": {
+      "disable": true
+    },
+    "general": {
+      "disable": true
+    }
+  },
+  "lsp": true,
+  "permission": {
+    "read": "allow",
+    "glob": "allow",
+    "grep": "allow",
+    "list": "allow",
+    "bash": {
+      "*": "ask",
+      "git status*": "allow",
+      "git diff*": "allow",
+      "git log*": "allow",
+      "git show*": "allow",
+      "ls *": "allow",
+      "pwd": "allow",
+      "echo *": "allow",
+      "cat *": "allow",
+      "git commit*": "deny",
+      "* git commit*": "deny",
+      "git push*": "deny",
+      "* git push*": "deny",
+      "git reset*": "deny",
+      "* git reset*": "deny",
+      "git clean*": "deny",
+      "* git clean*": "deny",
+      "git restore*": "deny",
+      "* git restore*": "deny",
+      "git rebase*": "deny",
+      "git filter-branch*": "deny",
+      "rm *": "deny",
+      "* rm *": "deny",
+      "*rm -rf*": "deny",
+      "rmdir *": "deny",
+      "sudo *": "deny",
+      "* sudo *": "deny",
+      "su *": "deny",
+      "dd *": "deny",
+      "mkfs*": "deny",
+      "shred *": "deny",
+      "chmod -R*": "deny",
+      "chown -R*": "deny",
+      "shutdown*": "deny",
+      "reboot*": "deny",
+      "halt*": "deny",
+      "poweroff*": "deny",
+      "kill *": "deny",
+      "killall *": "deny",
+      "pkill *": "deny",
+      "docker rm*": "deny",
+      "docker rmi*": "deny",
+      "docker system prune*": "deny",
+      "docker volume rm*": "deny"
+    }
+  }
+}

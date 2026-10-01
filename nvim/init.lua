@@ -251,7 +251,7 @@ require("lazy").setup({
         build = ":TSUpdate",
         config = function()
             require("nvim-treesitter.configs").setup({
-                ensure_installed = { "lua", "python", "c", "cpp", "java", "vim", "vimdoc" },
+                ensure_installed = { "lua", "python", "c", "cpp", "java", "vim", "vimdoc", "markdown", "markdown_inline" },
                 auto_install = true,
                 highlight = {
                     enable = true,
@@ -260,6 +260,19 @@ require("lazy").setup({
                 indent = { enable = true },
             })
         end,
+    },
+
+    {
+        "MeanderingProgrammer/render-markdown.nvim",
+        ft = { "markdown" },
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-tree/nvim-web-devicons",
+        },
+        keys = {
+            { "<leader>mr", "<cmd>RenderMarkdown toggle<cr>", ft = "markdown", desc = "Toggle Markdown Rendering" },
+        },
+        opts = {},
     },
 
     {
@@ -504,6 +517,21 @@ require("lazy").setup({
     },
 
     {
+        "okuuva/auto-save.nvim",
+        opts = {
+            trigger_events = {
+                immediate_save = {},
+                defer_save = { "InsertLeave" },
+                cancel_deferred_save = { "InsertEnter" },
+            },
+            condition = function(buf)
+                return vim.fn.getbufvar(buf, "&modifiable") == 1
+                    and vim.fn.getbufvar(buf, "&buftype") == ""
+            end,
+        },
+    },
+
+    {
         "numToStr/Comment.nvim",
         opts = {},
     },
@@ -532,6 +560,7 @@ require("lazy").setup({
                 { "<leader>c", group = "Code" },
                 { "<leader>d", group = "Document" },
                 { "<leader>f", group = "Find" },
+                { "<leader>m", group = "Markdown" },
                 { "<leader>w", group = "Workspace" },
                 { "<leader>b", group = "Buffer" },
                 { "<leader>t", group = "Terminal" },
